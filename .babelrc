@@ -1,0 +1,15 @@
+{
+    "presets": [
+        ["env", {
+            "targets": {
+                "browsers": ["last 2 versions"]
+            }
+        }],
+        "react"
+    ],
+    "plugins": [
+        ["import", { "libraryName": "antd", "style": true }],
+        ["transform-class-properties", { "spec": true }],
+        "transform-object-rest-spread"
+    ]
+}

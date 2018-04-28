@@ -1,19 +1,17 @@
-
 import React from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
-
-import App from './pages/App';
+import Header from './pages/Header';
 import Home from './pages/home/home';
 import Publish from './pages/Publish';
 
 const routes = (
     <Router>
-        <Switch>
-            <Route exact path="/" component={App} />
-            <Route path="/home" component={Home} />
+        <div className="app">
+            <Header />
+            <Route exact path="/" component={Home} />
             <Route path="/publish" component={Publish} />
-        </Switch>
+        </div>
     </Router>
 )
 

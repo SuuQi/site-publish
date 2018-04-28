@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Modal, Form, Input } from 'antd';
 
 const FormItem = Form.Item;
 
-import * as API from '../../api/publish.js';
+import * as API from '../../utils/publish.js';
 
 class PublishCreateForm extends React.Component {
 

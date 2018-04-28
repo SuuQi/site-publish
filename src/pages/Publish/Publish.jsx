@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import { Button } from 'antd';
@@ -26,7 +25,7 @@ class Publish extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="publish">
                 <Button type="primary" size="large" onClick={() => this.setState({ createModalVisible: true })} >新增</Button>
                 <PublishTable />
                 <PublishCreateForm

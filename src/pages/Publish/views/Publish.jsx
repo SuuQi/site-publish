@@ -1,6 +1,8 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import { Button } from 'antd';
+
+import * as actions from '../actions';
 
 import PublishTable from './PublishTable';
 import PublishCreateForm from './PublishCreateForm';
@@ -24,6 +26,7 @@ class Publish extends React.Component {
     }
 
     render () {
+        console.log(this.props);
         return (
             <div className="publish">
                 <Button type="primary" size="large" onClick={() => this.setState({ createModalVisible: true })} >新增</Button>
@@ -38,4 +41,11 @@ class Publish extends React.Component {
     }
 }
 
-export default Publish;
+export default connect(
+    state => ({
+        ...state.pubish
+    }),
+    dispatch => ({
+        ...actions
+    })
+)(Publish);

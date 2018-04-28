@@ -54,6 +54,10 @@ module.exports = {
         ]
     },
     resolve: {
+        alias: {
+            Config: path.join(__dirname, '../src/config'),
+            Utils: path.join(__dirname, '../src/utils')
+        },
         extensions: ['.js', '.jsx', '.json']
     },
     externals: {

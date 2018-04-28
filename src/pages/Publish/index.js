@@ -1,4 +1,5 @@
+import * as actions from './actions';
+import reducer from './reducer';
+import views from './views/Publish';
 
-import Publish from './Publish';
-
-export default Publish;
+export { actions, reducer, views };

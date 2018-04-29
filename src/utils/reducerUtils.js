@@ -12,7 +12,7 @@ export function createReducer (initState, handlers) {
 
 export function fetchHandle (handleSuccess) {
     return function (state, action) {
-        switch (action.type) {
+        switch (action.status) {
         case FETCH_FIRE:
             return { ...state, isFetching: true };
             break;

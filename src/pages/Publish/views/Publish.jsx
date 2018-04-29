@@ -9,36 +9,35 @@ import PublishCreateForm from './PublishCreateForm';
 
 class Publish extends React.Component {
     state = {
-        createModalVisible: false
+        createModalVisible: true
     }
 
     componentDidMount () {
         this.props.getList();
     }
     
-    showCreateModal () {
+    showCreateModal = () => {
         this.setState({
             createModalVisible: true
         });
     }
 
-    hideCreateModal (e) {
-        console.log(e);
+    hideCreateModal = () => {
         this.setState({
             createModalVisible: false
         });
     }
 
     render () {
-        console.log(this.props);
         return (
             <div className="publish">
-                <Button type="primary" size="large" onClick={() => this.setState({ createModalVisible: true })} >新增</Button>
-                <PublishTable />
+                <Button type="primary" size="large" onClick={this.showCreateModal} >新增</Button>
+                <PublishTable list={this.props.list} />
                 <PublishCreateForm
+                    addProject={this.props.addProject}
                     visible={this.state.createModalVisible}
-                    showModal={this.hideCreateModal.bind(this)}
-                    hideModal={this.hideCreateModal.bind(this)}
+                    showModal={this.showCreateModal}
+                    hideModal={this.hideCreateModal}
                 />
             </div>
         )
@@ -50,6 +49,7 @@ export default connect(
         ...state.pubish
     }),
     dispatch => ({
-        getList: () => dispatch(actions.getList())
+        getList: () => dispatch(actions.getList()),
+        addProject: data => dispatch(actions.addProject(data))
     })
 )(Publish);

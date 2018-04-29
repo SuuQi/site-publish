@@ -5,21 +5,11 @@ const FormItem = Form.Item;
 
 class PublishCreateForm extends React.Component {
 
-    state = {
-
-    }
-
-    async componentWillMount () {
-    }
-
     handleSubmit (e) {
-        const { validateFields } = this.props.form;
-        validateFields(async (err, values) => {
-            if (!err) {
-                // let res = await API.save(values);
-                console.log(res);
-                this.props.hideModal();
-            }
+        this.props.form.validateFields(async (err, values) => {
+            if (err) return;
+            this.props.addProject(values);
+            this.props.hideModal();
         });
     }
 

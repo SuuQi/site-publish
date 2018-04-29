@@ -13,4 +13,3 @@ export function fetchAjax ({ url, type = 'get', title, data = {} }) {
             });
     }
 }
-

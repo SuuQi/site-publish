@@ -31,7 +31,8 @@ gulp.task('serve', () => {
     const compiler = reallyWebpack(webpackConfig);
 
     browserSync.init({
-        server: path.join(__dirname, '../src/'),
+        // server: path.join(__dirname, '../src/'),
+        proxy: 'http://localhost:9000',
         https: false,
         middleware: [
             webpackDevMiddleware(compiler, {

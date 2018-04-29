@@ -11,6 +11,10 @@ class Publish extends React.Component {
     state = {
         createModalVisible: false
     }
+
+    componentDidMount () {
+        this.props.getList();
+    }
     
     showCreateModal () {
         this.setState({
@@ -46,6 +50,6 @@ export default connect(
         ...state.pubish
     }),
     dispatch => ({
-        ...actions
+        getList: () => dispatch(actions.getList())
     })
 )(Publish);

@@ -1,15 +1,15 @@
 import axios from 'axios';
-import { FETCH_FIRE, FETCH_SUCCESS, FETCH_FAILURE, PARAMS_TYPE } from 'Config';
+import { FETCH_FIRE, FETCH_SUCCESS, FETCH_FAILURE, PARAMS_METHOD } from 'Config';
 
-export function fetchAjax ({ url, type = 'get', title, data = {} }) {
+export function fetchAjax ({ url, method = 'get', type, data = {} }) {
     return function (dispatch) {
-        dispatch({ title, status: FETCH_FIRE });
-        return axios[type](url, PARAMS_TYPE.includes(type) ? { params: data } : data)
+        dispatch({ type, status: FETCH_FIRE });
+        return axios[method](url, PARAMS_METHOD.includes(method) ? { params: data } : data)
             .then(payload => {
-                dispatch({ title, status: FETCH_SUCCESS, payload });
+                dispatch({ type, status: FETCH_SUCCESS, payload });
             })
             .catch(e => {
-                dispatch({ title, status: FETCH_FAILURE });
+                dispatch({ type, status: FETCH_FAILURE });
             });
     }
 }

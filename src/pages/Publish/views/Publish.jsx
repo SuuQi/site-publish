@@ -9,7 +9,7 @@ import PublishCreateForm from './PublishCreateForm';
 
 class Publish extends React.Component {
     state = {
-        createModalVisible: fase
+        createModalVisible: false
     }
 
     componentDidMount () {

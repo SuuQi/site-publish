@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Modal, Form, Input } from 'antd';
 
 const FormItem = Form.Item;
@@ -15,7 +16,6 @@ class PublishCreateForm extends React.Component {
 
     render () {
         const { visible, hideModal } = this.props;
-
         const { getFieldDecorator } = this.props.form;
         
         return (
@@ -53,6 +53,4 @@ class PublishCreateForm extends React.Component {
     }
 }
 
-const WrappedPublishCreateForm = Form.create()(PublishCreateForm);
-
-export default WrappedPublishCreateForm;
+export default Form.create()(PublishCreateForm);

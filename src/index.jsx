@@ -10,10 +10,12 @@ import thunkMiddleware from 'redux-thunk';
 import Header from './pages/Header';
 import Home from './pages/home/home';
 import { views as Publish, reducer as pubish } from './pages/Publish';
+import { views as Ftp, reducer as ftp } from './pages/Ftp';
 
 const store = createStore(
     combineReducers({
-        pubish
+        pubish,
+        ftp
     }),
     {},
     applyMiddleware(thunkMiddleware)
@@ -26,6 +28,7 @@ render(
                 <Header />
                 <Route exact path="/" component={Home} />
                 <Route path="/publish" component={Publish} />
+                <Route path="/ftp" component={Ftp} />
             </div>
         </Router>
     </Provider>,

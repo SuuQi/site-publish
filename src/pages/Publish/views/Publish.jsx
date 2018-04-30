@@ -7,6 +7,7 @@ import * as actions from '../actions';
 import PublishTable from './PublishTable';
 import PublishCreateForm from './PublishCreateForm';
 
+
 class Publish extends React.Component {
     state = {
         createModalVisible: false
